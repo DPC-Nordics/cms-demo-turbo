@@ -1,5 +1,5 @@
 {
-  "name": "@cms-demo-turbo/api",
+  "name": "@cms-demo-turbo/contentstack-api",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -21,15 +21,14 @@
   },
   "dependencies": {
     "@cms-demo-turbo/types": "*",
-    "@cms-demo-turbo/example-api": "*",
-    "@cms-demo-turbo/contentstack-api": "*",
-    "@cms-demo-turbo/contentful-api": "*"
-
+    "@reduxjs/toolkit": "^1.3.6",
+    "react-redux": "^8"
   },
   "devDependencies": {
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "eslint": "latest",
+    "node-fetch": "^3.2.0",
     "react": "^18.2.0",
     "tsup": "^6.2.3",
     "typescript": "^4.7.4"
