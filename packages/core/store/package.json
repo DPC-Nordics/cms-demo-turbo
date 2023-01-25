@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@cms-demo-turbo/example-api": "*",
+    "@cms-demo-turbo/contentstack-api": "*",
     "@cms-demo-turbo/contentful-api": "*",
     "@cms-demo-turbo/types": "*",
     "@reduxjs/toolkit": "^1.3.6",
