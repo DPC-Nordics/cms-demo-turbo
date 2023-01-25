@@ -1,4 +1,4 @@
-import { useGetContentstackProductsQuery, useGetProductsQuery, useGetStoryByIdQuery } from '@cms-demo-turbo/api'
+import { useGetAllStoriesQuery, useGetContentstackProductsQuery, useGetProductsQuery } from '@cms-demo-turbo/api'
 import { Navbar, PageLayout, Text } from '@cms-demo-turbo/web-ui'
 import { NextPage } from 'next'
 
@@ -6,38 +6,31 @@ const IndexPage: NextPage = () => {
   const { data, isLoading, isError } = useGetProductsQuery()
   const { data: data_contentstack } = useGetContentstackProductsQuery()
   const {
-    data: storyblokStory,
-    isLoading: storyblokStoryIsLoading,
-    isError: storyblokStoryIsError,
-  } = useGetStoryByIdQuery('storyblok-products')
+    data: allStories,
+    isLoading: allStoriesLoading,
+    isError: allStoriesError,
+  } = useGetAllStoriesQuery()
 
-  if (isLoading || storyblokStoryIsLoading) {
+  if (isLoading || allStoriesLoading) {
     return <p>Loading...</p>
   }
 
-  if (isError || storyblokStoryIsError) {
+  if (isError || allStoriesError) {
     return <p>Error</p>
   }
 
+  const homeStory = allStories.stories.find((story) => story.slug === 'home')
   const homeNav = {
-    label: 'DPC Turbo',
+    label: homeStory.name,
     navigateTo: '/',
   }
 
-  const navItems = [
-    {
-      label: 'Contentful',
-      navigateTo: '/contentful',
-    }, 
-    {
-      label: 'Contentstack',
-      navigateTo: '/contentstack',
-    },
-    {
-      label: 'Storyblok',
-      navigateTo: '/storyblok',
-    },
-  ]
+  const navItems = allStories.stories
+    .filter((story) => story.slug !== 'home')
+    .map((story) => ({
+      label: story.name,
+      navigateTo: story.slug,
+    }))
 
   return (
     <>
@@ -61,14 +54,6 @@ const IndexPage: NextPage = () => {
                 {product.name} - {product.price}
               </Text>
             </div>
-          ))}
-        </div>
-        <div className="card-body">
-          <Text type="h3">Storyblok products</Text>
-          {storyblokStory.story.content.body.map((b) => (
-            <p key={b._uid} className="text-white">
-              {b.title}
-            </p>
           ))}
         </div>
       </PageLayout>

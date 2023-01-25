@@ -1,7 +1,20 @@
-export namespace Storyblok {
-  export type ComponentTypes = 'hero' | 'page'
+export enum StoryblokStoryName {
+  STORYBLOK = 'storyblok',
+  CONTENTFUL = 'contentful',
+  CONTENTSTACK = 'contentstack',
+}
 
-  export interface Response {
+export namespace Storyblok {
+  export type ComponentTypes = 'hero' | 'page' | 'card'
+
+  export interface Stories {
+    stories: Array<{
+      name: string
+      stories: Array<Storyblok.Story>
+      slug: string
+    }>
+  }
+  export interface Story {
     story: {
       name: string
       content: {
@@ -13,9 +26,7 @@ export namespace Storyblok {
   }
 
   export namespace Blok {
-    export type Components = Blok.IHero | Blok.IHeader
-
-    export interface BaseProperties {
+    interface BaseProperties {
       _uid: string
     }
 
@@ -32,8 +43,9 @@ export namespace Storyblok {
       }
     }
 
-    export interface IHeader extends BaseProperties {
+    export interface ICard extends BaseProperties {
       title: string
+      description: string
     }
   }
 }
