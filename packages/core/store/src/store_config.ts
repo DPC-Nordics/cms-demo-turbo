@@ -1,5 +1,6 @@
 import { exampleApiSlice } from '@cms-demo-turbo/example-api'
 import { contentfulApiSlice } from '@cms-demo-turbo/contentful-api'
+import { storyblokApiSlice } from '@cms-demo-turbo/storyblok-api'
 import { contentstackApiSlice } from '@cms-demo-turbo/contentstack-api'
 import exampleSlice from './example/exampleSlice'
 
@@ -9,16 +10,18 @@ import exampleSlice from './example/exampleSlice'
 export const reducers = {
   example: exampleSlice.reducer,
   products: contentfulApiSlice.reducer,
+  storyblok: storyblokApiSlice.reducer,
 
   //-----------------------------------------------------------
   // Add all api slices
   //-----------------------------------------------------------
   [exampleApiSlice.reducerPath]: exampleApiSlice.reducer,
   [contentfulApiSlice.reducerPath]: contentfulApiSlice.reducer,
+  [storyblokApiSlice.reducerPath]: storyblokApiSlice.reducer,
   [contentstackApiSlice.reducerPath]: contentstackApiSlice.reducer,
 }
 
 //-----------------------------------------------------------
 // add all api middlewares here
 //-----------------------------------------------------------
-export const extra_midlewares = [exampleApiSlice.middleware, contentfulApiSlice.middleware, contentstackApiSlice.middleware];
+export const extra_midlewares = [exampleApiSlice.middleware, contentfulApiSlice.middleware, storyblokApiSlice.middleware, contentstackApiSlice.middleware];

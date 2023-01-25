@@ -22,9 +22,9 @@
   "dependencies": {
     "@cms-demo-turbo/types": "*",
     "@cms-demo-turbo/example-api": "*",
-    "@cms-demo-turbo/contentstack-api": "*",
-    "@cms-demo-turbo/contentful-api": "*"
-
+    "@cms-demo-turbo/contentful-api": "*",
+    "@cms-demo-turbo/storyblok-api": "*",
+    "@cms-demo-turbo/contentstack-api": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.14",

@@ -1,18 +1,21 @@
-import { getProduct, useGetProductsQuery } from '@cms-demo-turbo/api'
-import { useGetContentstackProductsQuery } from '@cms-demo-turbo/api'
-import { PageLayout } from '@cms-demo-turbo/web-ui'
-import { Text } from '@cms-demo-turbo/web-ui'
+import { useGetContentstackProductsQuery, useGetProductsQuery, useGetStoryByIdQuery } from '@cms-demo-turbo/api'
+import { PageLayout, Text } from '@cms-demo-turbo/web-ui'
 import { NextPage } from 'next'
 
 const IndexPage: NextPage = () => {
   const { data, isLoading, isError } = useGetProductsQuery()
   const { data: data_contentstack } = useGetContentstackProductsQuery()
+  const {
+    data: storyblokStory,
+    isLoading: storyblokStoryIsLoading,
+    isError: storyblokStoryIsError,
+  } = useGetStoryByIdQuery('storyblok-products')
 
-  if (isLoading) {
+  if (isLoading || storyblokStoryIsLoading) {
     return <p>Loading...</p>
   }
 
-  if (isError) {
+  if (isError || storyblokStoryIsError) {
     return <p>Error</p>
   }
 
@@ -36,6 +39,14 @@ const IndexPage: NextPage = () => {
               {product.name} - {product.price}
             </Text>
           </div>
+        ))}
+      </div>
+      <div className="card-body">
+        <Text type="h3">Storyblok products</Text>
+        {storyblokStory.story.content.body.map((b) => (
+          <p key={b._uid} className="text-white">
+            {b.title}
+          </p>
         ))}
       </div>
     </PageLayout>
