@@ -14,13 +14,13 @@ export const Card: React.FC<ICardProps> = ({
   subtitle,
 }) => {
   return (
-    <label className="swap swap-flip">
+    <label className="swap swap-rotate">
       <input type="checkbox" />
 
       <div className="swap-off">
         <div className="card card w-96 bg-base-100 shadow-xl g">
-          <figure>
-            <img src={image} alt="Shoes" />
+          <figure className="px-10 pt-10">
+            <img className="max-h-20 min-h-20" src={image} alt={title} />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}</h2>
@@ -33,7 +33,7 @@ export const Card: React.FC<ICardProps> = ({
       <div className="swap-on">
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
           <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            <img className="max-h-20 min-h-20"  src={image} alt={title} />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}</h2>

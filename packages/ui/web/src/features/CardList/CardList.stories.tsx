@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CardList } from './CardList'
-import {Card} from '../Card'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,21 +21,21 @@ const cards = [
     description:
     'Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.',
     subtitle: 'This is the subtitle',
-    image: 'https://robohash.org/4',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg',
   },
   {
     title: 'React 18',
     description:
     'React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.',
     subtitle: 'A JavaScript UI library',
-    image: 'https://robohash.org/5',
+    image: 'https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png',
   },
   {
     title: 'Redux Toolkit',
     description:
     'Global state management. New generation Redux framework. Includes Redux Thunk out of the box for asynchronous actions',
     subtitle: 'State management',
-    image: 'https://robohash.org/6',
+    image: 'https://hybridheroes.de/blog/content/images/size/w2000/2022/03/redux-toolkit-1400.jpg',
   },
 ]
 
