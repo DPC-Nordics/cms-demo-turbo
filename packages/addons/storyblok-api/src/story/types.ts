@@ -1,4 +1,5 @@
 export enum StoryblokStoryName {
+  HOME = 'home',
   STORYBLOK = 'storyblok',
   CONTENTFUL = 'contentful',
   CONTENTSTACK = 'contentstack',
@@ -10,7 +11,11 @@ export namespace Storyblok {
   export interface Stories {
     stories: Array<{
       name: string
-      stories: Array<Storyblok.Story>
+      content: {
+        _uid: string
+        body: Array<Record<string, any>>
+        component: ComponentTypes
+      }
       slug: string
     }>
   }
@@ -40,6 +45,16 @@ export namespace Storyblok {
         copyright: string
         fieldtype: string
         filename: string
+      }
+    }
+
+    export interface ITechBox extends BaseProperties {
+      imgSrc: {
+        url: string
+      }
+      navigateTo: {
+        target: string
+        url: string
       }
     }
 
