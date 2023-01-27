@@ -1,4 +1,5 @@
 export * from './Navbar'
 export * from './Card'
+export * from './CardList'
 export * from './TechBox'
 export * from './Hero'
