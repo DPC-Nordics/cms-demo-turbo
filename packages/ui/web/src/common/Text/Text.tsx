@@ -38,7 +38,7 @@ export const Text: React.FC<ITextProps> = ({
       type === 'subtitle2') &&
       'text-secondary-gray',
 
-    'dark:text-gray-300',
+    // 'dark:text-gray-300',
   )
 
   const bottomMarginClass = clsx(
