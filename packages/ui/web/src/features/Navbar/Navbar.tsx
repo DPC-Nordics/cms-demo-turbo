@@ -29,10 +29,10 @@ export const Navbar = (props: INavbarProps) => {
   )
 
   return (
-    <header>
+    <header className='sticky top-0'>
       <nav
         className="
-          flex flex-wrap
+          flex flex-wrap bg-transparent
           items-center
           justify-between
           w-full
